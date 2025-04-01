@@ -1,6 +1,7 @@
 -- Adapted from a combo of
 -- https://lsp-zero.netlify.app/v3.x/blog/theprimeagens-config-from-2022.html
 -- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/lazy/lsp.lua
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -60,11 +61,7 @@ return {
           })
         end,
 		intelephense = function ()
-			require('lspconfig').intelephense.setup({
-				root_dir = function ()
-					return vim.uv.cwd()
-				end,
-			})
+            require('lspconfig').intelephense.setup({})
 		end
       }
     })
