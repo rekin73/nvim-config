@@ -14,3 +14,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
   end,
 })
+vim.opt.shell        = vim.fn.executable('pwsh') and 'pwsh' or 'powershell'
+vim.opt.shellcmdflag =
+'-NoLogo -NoProfile -OutputFormat Text -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[\'Out-File:Encoding\']=\'utf8\';Remove-Alias -Force -ErrorAction SilentlyContinue tee;$PSStyle.OutputRendering = [System.Management.Automation.OutputRendering]::PlainText;'
+vim.opt.shellredir   = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+vim.opt.shellpipe    = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+vim.opt.shellquote   = ''
+vim.opt.shellxquote  = ''
