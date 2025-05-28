@@ -11,6 +11,7 @@ vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua grep<cr>', { desc = "FZF grep" })
 vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua<cr>', { desc = "FZF open menu" })
 vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua resume<cr>', { desc = "FZF resume previous" })
 vim.keymap.set('n', '<leader>frr', '<cmd>FzfLua lsp_references<cr>', { desc = "FZF lsp reference" })
+vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<cr>', { desc = "FZF buffers" })
 -- DEBUGGER KEYMAPS
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = "Debugger run" })
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = "Debugger step over" })
