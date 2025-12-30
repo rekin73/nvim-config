@@ -33,6 +33,8 @@ return {
                 "lua_ls",
                 "phpactor",
                 "intelephense",
+                "psalm",
+                "ts_ls"
             },
             automatic_enable = {
                 exclude = {
@@ -41,8 +43,100 @@ return {
             },
         })
 
-        vim.lsp.config('intelephense', {})
-        vim.lsp.config('phpactor', {})
+        vim.lsp.config('intelephense', {
+            settings = {
+                intelephense = {
+                    stubs = {
+                        "apache",
+                        "bcmath",
+                        "bz2",
+                        "calendar",
+                        "com_dotnet",
+                        "Core",
+                        "ctype",
+                        "curl",
+                        "date",
+                        "dba",
+                        "dom",
+                        "enchant",
+                        "exif",
+                        "FFI",
+                        "fileinfo",
+                        "filter",
+                        "fpm",
+                        "ftp",
+                        "gd",
+                        "gettext",
+                        "gmp",
+                        "hash",
+                        "iconv",
+                        "imap",
+                        "intl",
+                        "json",
+                        "ldap",
+                        "libxml",
+                        "mbstring",
+                        "meta",
+                        "mysqli",
+                        "oci8",
+                        "odbc",
+                        "openssl",
+                        "pcntl",
+                        "pcre",
+                        "PDO",
+                        "pdo_ibm",
+                        "pdo_mysql",
+                        "pdo_pgsql",
+                        "pdo_sqlite",
+                        "pgsql",
+                        "Phar",
+                        "posix",
+                        "pspell",
+                        "random",
+                        "readline",
+                        "Reflection",
+                        "session",
+                        "shmop",
+                        "SimpleXML",
+                        "snmp",
+                        "soap",
+                        "sockets",
+                        "sodium",
+                        "SPL",
+                        "sqlite3",
+                        "standard",
+                        "superglobals",
+                        "sysvmsg",
+                        "sysvsem",
+                        "sysvshm",
+                        "tidy",
+                        "tokenizer",
+                        "xml",
+                        "xmlreader",
+                        "xmlrpc",
+                        "xmlwriter",
+                        "xsl",
+                        "Zend OPcache",
+                        "zip",
+                        "zlib",
+                        "ssh2",
+                        "sqlsrv"
+                    }
+                }
+            }
+        })
+
+        vim.lsp.config('ts-ls', {})
+        vim.lsp.config('psalm', {
+            -- cmd = { "podman","compose","exec","php","/usr/share/php/psalm/psalm-language-server","-r=/app","--map-folder=/app:$PWD" },
+        })
+        vim.lsp.config('phpactor', {
+            init_options = {
+                ['logging.enabled'] = true,
+                ['logging.level'] = 'debug',
+                ['logging.path'] = 'phpactor.log',
+        }
+        })
         vim.lsp.config('lua_ls', {
             on_init = function(client)
                 if client.workspace_folders then

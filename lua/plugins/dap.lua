@@ -6,6 +6,7 @@ return {
     config =function ()
         local dap = require('dap')
         local mason = require('mason')
+        dap.defaults.php.exception_breakpoints = {"Warning", "Error", "Exception"}
         -- PHP https://github.com/xdebug/vscode-php-debug
         dap.adapters.php ={
             type = 'executable',
