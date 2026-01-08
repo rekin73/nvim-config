@@ -137,6 +137,7 @@ return {
                 ['logging.path'] = 'phpactor.log',
         }
         })
+        vim.lsp.enable('hls')
         vim.lsp.config('lua_ls', {
             on_init = function(client)
                 if client.workspace_folders then
